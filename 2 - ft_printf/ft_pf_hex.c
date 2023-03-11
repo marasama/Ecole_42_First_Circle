@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pf_intlen.c                                     :+:      :+:    :+:   */
+/*   ft_pf_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adurusoy <adurusoy@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 21:42:06 by adurusoy          #+#    #+#             */
-/*   Updated: 2023/03/11 21:42:06 by adurusoy         ###   ########.fr       */
+/*   Created: 2023/03/11 21:42:21 by adurusoy          #+#    #+#             */
+/*   Updated: 2023/03/11 21:42:21 by adurusoy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int    ft_pf_intlen(long long a)
+void ft_pf_hex(long long a, int b, int *c)
 {
-    int    b;
+    char    *f;
+    int     d;
+    int     e;
 
-    b = 0;
-    if (a == -2147483648)
-        return (11);
-    if (a < 0)
+    d = 0;
+    e = 7;
+    f = malloc(sizeof(char) * 8 + 1);
+    
+    while (a != 0)
     {
-        a = -a;
-        b++;
+        d = a % 16;
+        f[e--] = (d < 10) ? (d + 48) : (d + 87);
+        a /= 16;
     }
-    while ((a / 10) != 0)
-    {
-        a /= 10;
-        b++;
-    }
-    return (b + 1);
+    e++;
+    ft_bzero((void *)f, e);
+    ft_pf_string(f + e, c);
+    free(f);
 }

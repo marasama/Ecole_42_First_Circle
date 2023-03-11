@@ -23,4 +23,5 @@ void    ft_pf_string(char *a, int *c);
 void    ft_pf_unint(unsigned int a, int *b);
 void    ft_pf_int(int a, int *c);
 int     ft_pf_intlen(long long a);
+void	ft_bzero(void *s, size_t n);
 # endif

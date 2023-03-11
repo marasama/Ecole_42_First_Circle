@@ -15,23 +15,23 @@
 int type_checker(char a, va_list b, int *c)
 {
     if (a == 'c')
-        ft_putchar(va_arg(b, char), c);
+        ft_pf_putchar(va_arg(b, char), c);
     else if (a == 's')
-        ft_string(va_arg(b, char *), c);
+        ft_pf_string(va_arg(b, char *), c);
     else if (a == 'p')
-        ft_pointer(va_arg(b, void *), c);
+        ft_pf_pointer(va_arg(b, void *), c);
     else if (a == 'd') 
-        ft_int(va_arg(b, int), c);
+        ft_pf_int(va_arg(b, int), c);
     else if (a == 'i')
-        ft_int(va_arg(b, int), c);
+        ft_pf_int(va_arg(b, int), c);
     else if (a == 'u')
-        ft_unsigned(a);
+        ft_pf_unint(va_arg(b, unsigned int), c);
     else if (a == 'x')
         ft_lhexadecimal(a);
     else if (a == 'X')
         ft_uhexadecimal(a);
     else if (a == '%')
-        ft_putchar('%', c);
+        ft_ft_putchar('%', c);
     else
         return (NULL);
 }

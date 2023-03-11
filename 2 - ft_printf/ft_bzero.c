@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pf_intlen.c                                     :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adurusoy <adurusoy@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 21:42:06 by adurusoy          #+#    #+#             */
-/*   Updated: 2023/03/11 21:42:06 by adurusoy         ###   ########.fr       */
+/*   Created: 2023/01/07 09:47:04 by adurusoy          #+#    #+#             */
+/*   Updated: 2023/03/11 22:43:51 by adurusoy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int    ft_pf_intlen(long long a)
+void	ft_bzero(void *s, size_t n)
 {
-    int    b;
+	unsigned char	*c;
+	size_t			f;
 
-    b = 0;
-    if (a == -2147483648)
-        return (11);
-    if (a < 0)
-    {
-        a = -a;
-        b++;
-    }
-    while ((a / 10) != 0)
-    {
-        a /= 10;
-        b++;
-    }
-    return (b + 1);
+	c = s;
+	f = 0;
+	while (f < n)
+	{
+		c[f] = 0;
+		f++;
+	}
 }
