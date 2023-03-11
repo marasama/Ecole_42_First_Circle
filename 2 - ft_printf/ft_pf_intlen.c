@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-int    ft_pf_intlen(long long a)
+int ft_pf_intlen(long long a)
 {
-    int    b;
+    int b;
 
     b = 0;
     if (a == -2147483648)
