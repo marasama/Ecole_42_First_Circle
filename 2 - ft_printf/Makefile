@@ -6,7 +6,7 @@
 #    By: adurusoy <adurusoy@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/26 13:56:31 by adurusoy          #+#    #+#              #
-#    Updated: 2023/01/26 13:56:31 by adurusoy         ###   ########.fr        #
+#    Updated: 2023/03/12 14:04:23 by adurusoy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS =	ft_printf.c \
 		ft_pf_pointer.c \
 		ft_pf_putchar.c \
 		ft_pf_string.c \
-		ft_pf_unint.c
+		ft_pf_unint.c \
+		ft_pow.c
 
 OBJS = $(SRCS:.c=.o)
 

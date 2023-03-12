@@ -19,7 +19,7 @@ void	ft_pf_string(char *a, int *c)
 	b = 0;
 	while (a[b])
 	{
-		ft_putchar(a[b], *c);
+		ft_pf_putchar(a[b], c);
 		b++;
 	}
 }

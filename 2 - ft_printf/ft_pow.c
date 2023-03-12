@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pf_pointer.c                                    :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adurusoy <adurusoy@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 21:42:02 by adurusoy          #+#    #+#             */
-/*   Updated: 2023/03/12 03:01:17 by adurusoy         ###   ########.fr       */
+/*   Created: 2023/03/12 14:00:43 by adurusoy          #+#    #+#             */
+/*   Updated: 2023/03/12 14:01:25 by adurusoy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_pf_pointer(void *a, int *b)
+int	ft_pow(int a)
 {
-	unsigned int	c;
+	int	b;
 
-	c = *((unsigned int *)a);
-	ft_pf_string("0x", b);
-	ft_pf_hex(c, 1, b);
+	b = 1;
+	while (--a > 0)
+	{
+		b *= 10;
+	}
+	return (b);
 }

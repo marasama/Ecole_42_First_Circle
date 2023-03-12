@@ -6,23 +6,11 @@
 /*   By: adurusoy <adurusoy@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 21:42:17 by adurusoy          #+#    #+#             */
-/*   Updated: 2023/03/11 21:42:17 by adurusoy         ###   ########.fr       */
+/*   Updated: 2023/03/12 14:01:28 by adurusoy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_pow(int a)
-{
-	int	b;
-
-	b = 1;
-	while (--a > 0)
-	{
-		b *= 10;
-	}
-	return (b);
-}
 
 void	ft_pf_int(int a, int *e)
 {
@@ -34,13 +22,13 @@ void	ft_pf_int(int a, int *e)
 	c = ft_pow(b);
 	if (a == -2147483648)
 	{
-		ft_string("-2", e);
+		ft_pf_string("-2", e);
 		a = 147483648;
 	}
 	else if (a < 0)
 	{
 		c--;
-		ft_putchar('-', e);
+		ft_pf_putchar('-', e);
 		a = -a;
 		b--;
 	}
@@ -48,6 +36,6 @@ void	ft_pf_int(int a, int *e)
 	{
 		d = ((a / c) % 10) + 48;
 		c /= 10;
-		ft_putchar(d, e);
+		ft_pf_putchar(d, e);
 	}
 }
