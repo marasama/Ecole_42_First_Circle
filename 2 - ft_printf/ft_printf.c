@@ -34,29 +34,28 @@ void	type_checker(char a, va_list b, int *c)
 		ft_pf_putchar('%', c);
 }
 
-int    ft_printf(const char *a, ...)
+int	ft_printf(const char *a, ...)
 {
-	int        count;
-    va_list    zort;
-    int        b;
-    int        c;
-    
+	int			count;
+	va_list		zort;
+	int			b;
+	int			c;
 
-    va_start(zort, a);
-    b = 0;
-    c = 0;
-    count = 0;
-    while (a[count] != '\0')
-    {
-        if (a[count] == '%')
-        {
-            type_checker(a[++count], zort, &b);
-            count++;
-            c += 2;
-        }
-        else
-          write (1, &a[count++], 1);
-    }
-    va_end(zort);
-    return (count + b -c);
+	va_start(zort, a);
+	b = 0;
+	c = 0;
+	count = 0;
+	while (a[count] != '\0')
+	{
+		if (a[count] == '%')
+		{
+			type_checker(a[++count], zort, &b);
+			count++;
+			c += 2;
+		}
+		else
+			write (1, &a[count++], 1);
+	}
+	va_end(zort);
+	return (count + b - c);
 }
