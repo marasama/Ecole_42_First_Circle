@@ -6,7 +6,7 @@
 /*   By: adurusoy <adurusoy@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:40:41 by adurusoy          #+#    #+#             */
-/*   Updated: 2023/01/26 13:40:41 by adurusoy         ###   ########.fr       */
+/*   Updated: 2023/03/12 03:01:17 by adurusoy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int type_checker(char a, va_list b, int *c)
     else if (a == 'u')
         ft_pf_unint(va_arg(b, unsigned int), c);
     else if (a == 'x')
-        ft_lhexadecimal(a);
+        ft_pf_hex(va_arg(b, unsigned int), 1, c);
     else if (a == 'X')
-        ft_uhexadecimal(a);
+        ft_pf_hex(va_arg(b, unsigned int), 2, c);
     else if (a == '%')
         ft_ft_putchar('%', c);
     else
