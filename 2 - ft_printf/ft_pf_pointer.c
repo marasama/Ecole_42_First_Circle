@@ -12,11 +12,11 @@
 
 #include "ft_printf.h"
 
-void ft_pf_pointer(void *a, int *b)
+void	ft_pf_pointer(void *a, int *b)
 {
-    unsigned int    c;
+	unsigned int	c;
 
-    c = (unsigned int)a;
-    ft_string("0x", b);
-    ft_pf_hex(c, 1, b);
+	c = (unsigned int)a;
+	ft_string("0x", b);
+	ft_pf_hex(c, 1, b);
 }
