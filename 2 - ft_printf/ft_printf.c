@@ -6,7 +6,7 @@
 /*   By: adurusoy <adurusoy@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:40:41 by adurusoy          #+#    #+#             */
-/*   Updated: 2023/03/12 03:01:17 by adurusoy         ###   ########.fr       */
+/*   Updated: 2023/03/12 15:00:54 by adurusoy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,29 @@ void	type_checker(char a, va_list b, int *c)
 		ft_pf_putchar('%', c);
 }
 
-int	ft_printf(const char *a, ...)
+int    ft_printf(const char *a, ...)
 {
-	int		count;
-	va_list	zort;
-	int		b;
+	int        count;
+    va_list    zort;
+    int        b;
+    int        c;
+    
 
-	va_start(zort, a);
-	b = 0;
-	count = 0;
-	while (a[count] != '\0')
-	{
-		if (a[count] == '%')
-		{
-			type_checker(a[++count], zort, &b);
-			count++;
-		}
-		write (1, &a[count], 1);
-		count++;
-	}
-	va_end(zort);
-	return (count + b);
+    va_start(zort, a);
+    b = 0;
+    c = 0;
+    count = 0;
+    while (a[count] != '\0')
+    {
+        if (a[count] == '%')
+        {
+            type_checker(a[++count], zort, &b);
+            count++;
+            c += 2;
+        }
+        else
+          write (1, &a[count++], 1);
+    }
+    va_end(zort);
+    return (count + b -c);
 }
