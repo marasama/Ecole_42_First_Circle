@@ -6,23 +6,20 @@
 /*   By: adurusoy <adurusoy@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 21:41:37 by adurusoy          #+#    #+#             */
-/*   Updated: 2023/03/12 14:01:34 by adurusoy         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:41:15 by adurusoy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_pf_unint(unsigned int a, int *b)
+void	ft_pf_unint(long long a, int *b)
 {
-	char			d;
+	int	d;
 
-	if (a < 2147483648)
-		ft_pf_int(a, b);
-	else
+	if (a < 0)
 	{
-		d = a % 10;
-		a /= 10;
-		ft_pf_int(a, b);
-		ft_pf_putchar(d, b);
+		d = a;
+		a = 4294967295 + d;
 	}
+	ft_pf_int(a, b);
 }
