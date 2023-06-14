@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adurusoy <adurusoy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 06:58:22 by adurusoy          #+#    #+#             */
-/*   Updated: 2023/06/14 04:39:34 by adurusoy         ###   ########.fr       */
+/*   Created: 2023/06/14 04:43:22 by adurusoy          #+#    #+#             */
+/*   Updated: 2023/06/14 04:56:17 by adurusoy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*cook(char *wholecake, char *cake)
 {
@@ -94,15 +94,15 @@ char	*plate(int fd, char *wholecake)
 
 char	*get_next_line(int fd)
 {
-	static char	*cake;
+	static char	*patisserie[OPEN_MAX];
 	char		*piece;
 
 	if (fd < 0 || read(fd, 0, 0) < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	cake = plate(fd, cake);
-	if (!cake)
+	patisserie[fd] = plate(fd, patisserie[fd]);
+	if (!patisserie[fd])
 		return (NULL);
-	piece = knife(cake);
-	cake = leftover(cake);
+	piece = knife(patisserie[fd]);
+	patisserie[fd] = leftover(patisserie[fd]);
 	return (piece);
 }
